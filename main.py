@@ -13,9 +13,11 @@ else:
     quit()
 
 r = random.randint(1, upper_limit)
+number_of_guesses = 0
 
 while True:
-    user_guess = input("Guess the number!")
+    number_of_guesses+=1
+    user_guess = input("Guess the number! ")
     if user_guess.isdigit():
         user_guess=int(user_guess)
     else:
@@ -24,7 +26,9 @@ while True:
 
     if user_guess == r:
         print("You are correct!")
+        print(f"You guessed {number_of_guesses} number of times.")
         break
+    elif user_guess > r:
+        print(f"{user_guess} is too high! Guess lower!")
     else:
-        print("Your guess is incorrect.")
-    
+        print(f"{user_guess} is too low! Guess higher!")
